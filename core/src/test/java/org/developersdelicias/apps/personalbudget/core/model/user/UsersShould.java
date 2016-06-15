@@ -2,6 +2,7 @@ package org.developersdelicias.apps.personalbudget.core.model.user;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import org.developersdelicias.apps.personalbudget.core.configuration.DatabaseUnitTestConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,9 +29,22 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Test
     @DatabaseSetup("/users/initial-list.xml")
-    public void retrieve_all_users_in_the_database() {
+    public void retrieve_all_users_in_the_database() throws Exception {
         List<User> userList = users.allUsers();
         assertThat(userList.size(), is(3));
         assertThat(userList.get(0).getFirstName(), is("Benjamin"));
+    }
+
+    @Test
+    @DatabaseSetup("/users/initial-list.xml")
+    @ExpectedDatabase("/users/users-after-create-new.xml")
+    public void create_new_users() throws Exception {
+        User newUser = new User();
+        newUser.setUsername("pwalker");
+        newUser.setPassword("123456");
+        newUser.setFirstName("Paul");
+        newUser.setLastName("Walker");
+        users.add(newUser);
+
     }
 }

@@ -19,4 +19,10 @@ public class UsersImpl implements Users {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from User").list();
     }
+
+    @Override
+    public void add(User newUser) {
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(newUser);
+    }
 }

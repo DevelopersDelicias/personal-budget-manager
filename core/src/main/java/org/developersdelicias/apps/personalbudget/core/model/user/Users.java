@@ -5,4 +5,7 @@ import java.util.List;
 
 public interface Users {
     List<User> allUsers();
+
+    void add(User newUser);
+
 }
