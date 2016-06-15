@@ -9,4 +9,6 @@ public interface Users {
     void add(User newUser);
 
     void update(User user);
+
+    void remove(long id);
 }

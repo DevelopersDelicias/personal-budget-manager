@@ -55,10 +55,15 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
     @DatabaseSetup("/users/initial-list.xml")
     @ExpectedDatabase("/users/users-after-update.xml")
     public void update_a_user() throws Exception {
-        System.out.println(users.allUsers());
         User benjamin = sessionFactory.getCurrentSession().load(User.class, new Long(1));
         benjamin.setLastName("Cisneros Barraza");
-        System.out.println(benjamin);
         users.update(benjamin);
+    }
+
+    @Test
+    @DatabaseSetup("/users/initial-list.xml")
+    @ExpectedDatabase("/users/users-after-delete.xml")
+    public void remove_a_user() throws Exception {
+        users.remove(3);
     }
 }

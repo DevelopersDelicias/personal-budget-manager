@@ -32,4 +32,13 @@ public class UsersImpl implements Users {
         session.update(user);
         session.flush();
     }
+
+    @Override
+    public void remove(long id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.createQuery("DELETE FROM User u WHERE u.id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+        session.flush();
+    }
 }
