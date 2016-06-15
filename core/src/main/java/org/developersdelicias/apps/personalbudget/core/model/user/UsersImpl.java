@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Objects;
+
+import static java.util.Objects.isNull;
 
 @Repository
 public class UsersImpl implements Users {
@@ -47,11 +48,13 @@ public class UsersImpl implements Users {
     public User findById(long id) {
         Session session = sessionFactory.getCurrentSession();
         User user = session.get(User.class, new Long(id));
+        validate(user);
+        return user;
+    }
 
-        if (Objects.isNull(user)){
+    private void validate(User user) {
+        if (isNull(user)) {
             throw new UserNotFoundException();
         }
-
-        return user;
     }
 }
