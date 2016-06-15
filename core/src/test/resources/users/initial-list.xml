@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <USERS USERNAME="bcisneros" PASSWORD="123456" FIRST_NAME="Benjamin" LAST_NAME="Cisneros"/>
+    <USERS USERNAME="aayala" PASSWORD="123456" FIRST_NAME="Alonso" LAST_NAME="Ayala"/>
+    <USERS USERNAME="jsmith" PASSWORD="123456" FIRST_NAME="John" LAST_NAME="Smith"/>
+</dataset>
