@@ -47,7 +47,7 @@ public class UsersImpl implements Users {
     @Override
     public User findById(long id) {
         Session session = sessionFactory.getCurrentSession();
-        User user = session.get(User.class, new Long(id));
+        User user = session.get(User.class, id);
         validate(user);
         return user;
     }
