@@ -41,4 +41,10 @@ public class UsersImpl implements Users {
                 .executeUpdate();
         session.flush();
     }
+
+    @Override
+    public User findById(long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, new Long(id));
+    }
 }

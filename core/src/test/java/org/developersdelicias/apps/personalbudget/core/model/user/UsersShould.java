@@ -18,6 +18,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -65,5 +66,13 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
     @ExpectedDatabase("/users/users-after-delete.xml")
     public void remove_a_user() throws Exception {
         users.remove(3);
+    }
+
+    @Test
+    @DatabaseSetup("/users/initial-list.xml")
+    public void find_a_user_by_id() throws Exception {
+        User user = users.findById(3);
+        assertNotNull("A not null user is expected.", user);
+        assertThat(user.getFirstName(), is("John"));
     }
 }
