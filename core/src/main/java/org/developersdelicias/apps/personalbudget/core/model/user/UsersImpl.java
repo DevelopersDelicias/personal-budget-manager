@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class UsersImpl implements Users {
@@ -45,6 +46,12 @@ public class UsersImpl implements Users {
     @Override
     public User findById(long id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(User.class, new Long(id));
+        User user = session.get(User.class, new Long(id));
+
+        if (Objects.isNull(user)){
+            throw new UserNotFoundException();
+        }
+
+        return user;
     }
 }
