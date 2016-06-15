@@ -4,6 +4,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import org.developersdelicias.apps.personalbudget.core.configuration.DatabaseUnitTestConfiguration;
+import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
     @Autowired
     private Users users;
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
     @Test
     @DatabaseSetup("/users/initial-list.xml")
     public void retrieve_all_users_in_the_database() throws Exception {
@@ -45,6 +49,16 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
         newUser.setFirstName("Paul");
         newUser.setLastName("Walker");
         users.add(newUser);
+    }
 
+    @Test
+    @DatabaseSetup("/users/initial-list.xml")
+    @ExpectedDatabase("/users/users-after-update.xml")
+    public void update_a_user() throws Exception {
+        System.out.println(users.allUsers());
+        User benjamin = sessionFactory.getCurrentSession().load(User.class, new Long(1));
+        benjamin.setLastName("Cisneros Barraza");
+        System.out.println(benjamin);
+        users.update(benjamin);
     }
 }

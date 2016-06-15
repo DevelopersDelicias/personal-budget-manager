@@ -25,4 +25,11 @@ public class UsersImpl implements Users {
         Session session = sessionFactory.getCurrentSession();
         session.persist(newUser);
     }
+
+    @Override
+    public void update(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(user);
+        session.flush();
+    }
 }
