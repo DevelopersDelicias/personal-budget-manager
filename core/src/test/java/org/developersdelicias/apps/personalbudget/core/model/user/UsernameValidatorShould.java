@@ -23,6 +23,5 @@ public class UsernameValidatorShould {
     @Parameters(source = UsernameTestDataProvider.class, method = "invalidUsernames")
     public void inform_when_a_username_is_invalid(String username) throws Exception {
         assertThat(validator.validate(username), is(false));
-
     }
 }
