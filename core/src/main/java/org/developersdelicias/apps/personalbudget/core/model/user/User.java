@@ -1,7 +1,5 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 
 @Entity
