@@ -15,6 +15,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {DatabaseUnitTestConfiguration.class, SpringWebConfiguration.class, SpringWebInitializer.class})
@@ -32,11 +35,11 @@ public class LoginFeatureShould {
         MockMvcWebClientBuilder mockMvcWebClientBuilder1 = mockMvcWebClientBuilder.contextPath("/personal-budget-manager");
         client = mockMvcWebClientBuilder1.createWebClient();
         client.getOptions().setJavaScriptEnabled(false);
-        //homePage = client.getPage("http://localhost/personal-budget-manager/");
+        homePage = client.getPage("http://localhost/personal-budget-manager/");
     }
 
     @Test
-    public void testName() throws Exception {
-
+    public void get_status_ok_when_home_page_is_requested() throws Exception {
+        assertThat(homePage.getWebResponse().getStatusCode(), is(200));
     }
 }
