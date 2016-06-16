@@ -1,4 +1,4 @@
-package org.developersdelicias.apps.personalbudget.core.configuration;
+package com.developersdelicias.apps.personalbudget.test.configuration;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

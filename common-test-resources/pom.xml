@@ -8,13 +8,8 @@
         <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>core</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>org.developersdelicias.apps</groupId>
-            <artifactId>common-test-resources</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+
+    <artifactId>common-test-resources</artifactId>
+
+
 </project>

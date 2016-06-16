@@ -1,9 +1,10 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
+import com.developersdelicias.apps.personalbudget.test.configuration.DatabaseUnitTestConfiguration;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
-import org.developersdelicias.apps.personalbudget.core.configuration.DatabaseUnitTestConfiguration;
+
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
