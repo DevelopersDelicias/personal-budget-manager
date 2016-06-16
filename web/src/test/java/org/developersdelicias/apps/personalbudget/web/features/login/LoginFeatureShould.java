@@ -42,4 +42,9 @@ public class LoginFeatureShould {
     public void get_status_ok_when_home_page_is_requested() throws Exception {
         assertThat(homePage.getWebResponse().getStatusCode(), is(200));
     }
+
+    @Test
+    public void have_a_title() throws Exception {
+        assertThat(homePage.getTitleText(), is("Personal Budget Manager"));
+    }
 }
