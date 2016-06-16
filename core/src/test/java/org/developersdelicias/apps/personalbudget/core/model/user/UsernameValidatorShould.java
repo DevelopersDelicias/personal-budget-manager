@@ -1,6 +1,5 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
-
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
