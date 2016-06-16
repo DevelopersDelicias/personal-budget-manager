@@ -1,8 +1,8 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
-
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -12,18 +12,28 @@ import static org.junit.Assert.assertThat;
 @RunWith(JUnitParamsRunner.class)
 public class UserShould {
 
+    private User user;
+
+    @Before
+    public void setUp() throws Exception {
+        user = new User();
+    }
+
     @Test
-    @Parameters({"bcisneros", "b123456", "benja_cisneros_", "b_e_n_j_a_m_i_n"})
+    @Parameters(source = UsernameTestDataProvider.class, method = "validUsernames")
     public void allow_to_set_a_valid_username(String username) throws Exception {
-        User user = new User();
         user.setUsername(username);
         assertThat(user.getUsername(), is(username));
     }
 
     @Test(expected = InvalidUsernameException.class)
-    @Parameters({"benja", "benjamin_cisneros_barraza", "1benja", "_benja", "Abenja", "benja@cisneros", "benja__min"})
+    @Parameters(source = UsernameTestDataProvider.class, method = "invalidUsernames")
     public void not_allow_to_set_an_invalid_username(String username) throws Exception {
-        User user = new User();
         user.setUsername(username);
+    }
+
+    @Test(expected = InvalidUsernameException.class)
+    public void not_allow_to_set_null_as_username() throws Exception {
+        user.setUsername(null);
     }
 }

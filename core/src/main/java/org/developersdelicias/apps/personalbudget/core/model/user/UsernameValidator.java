@@ -1,7 +1,9 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
-public class UsernameValidator {
+import static java.util.Objects.isNull;
+
+class UsernameValidator {
     public boolean validate(String username) {
-        return username.matches("(?!.*([_])\\1)[a-z][a-z0-9_]{5,14}");
+        return !isNull(username) && username.matches("(?!.*([_])\\1)[a-z][a-z0-9_]{5,14}");
     }
 }
