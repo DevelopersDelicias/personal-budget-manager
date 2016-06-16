@@ -21,7 +21,7 @@ public class UsernameValidatorShould {
     }
 
     @Test
-    @Parameters({"benja", "benjamin_cisneros_barraza", "1benja", "_benja", "Abenja", "benja@cisneros"})
+    @Parameters({"benja", "benjamin_cisneros_barraza", "1benja", "_benja", "Abenja", "benja@cisneros", "benja__min"})
     public void inform_when_a_username_is_invalid(String username) throws Exception {
         assertThat(validator.validate(username), is(false));
 
