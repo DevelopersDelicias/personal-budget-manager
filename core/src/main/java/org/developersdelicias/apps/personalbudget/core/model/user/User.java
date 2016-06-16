@@ -1,11 +1,8 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "USER")
@@ -28,6 +25,9 @@ public class User {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    @Transient
+    private UsernameValidator usernameValidator = new UsernameValidator();
+
     public long getId() {
         return id;
     }
@@ -41,8 +41,10 @@ public class User {
     }
 
     public void setUsername(String username) {
+        validateUsername(username);
         this.username = username;
     }
+
 
     public String getPassword() {
         return password;
@@ -77,5 +79,11 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    private void validateUsername(String username) {
+        if (!usernameValidator.validate(username)) {
+            throw new InvalidUsernameException(username);
+        }
     }
 }
