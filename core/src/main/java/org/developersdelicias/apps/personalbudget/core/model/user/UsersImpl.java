@@ -53,12 +53,15 @@ public class UsersImpl implements Users {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public User findByUsername(String username) {
         Session session = sessionFactory.getCurrentSession();
         List<User> list = session.createQuery("FROM User u WHERE u.username=:username")
                 .setParameter("username", username)
                 .list();
-        
+        if (list.isEmpty()) {
+            throw new UserNotFoundException();
+        }
         return list.get(0);
     }
 
