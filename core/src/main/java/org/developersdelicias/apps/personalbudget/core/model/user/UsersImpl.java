@@ -59,10 +59,14 @@ public class UsersImpl implements Users {
         List<User> list = session.createQuery("FROM User u WHERE u.username=:username")
                 .setParameter("username", username)
                 .list();
+        validateIsNotEmpty(list);
+        return list.get(0);
+    }
+    
+    private void validateIsNotEmpty(List<User> list) {
         if (list.isEmpty()) {
             throw new UserNotFoundException();
         }
-        return list.get(0);
     }
 
     private void validate(User user) {
