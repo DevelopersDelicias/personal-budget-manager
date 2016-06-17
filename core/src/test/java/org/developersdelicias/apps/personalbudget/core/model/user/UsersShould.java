@@ -77,4 +77,11 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
     public void throw_an_exception_when_user_does_not_exists() throws Exception {
         users.findById(100);
     }
+
+    @Test
+    public void find_a_user_by_username() throws Exception {
+        User user = users.findByUsername("jsmith");
+        assertNotNull("A not null user is expected.", user);
+        assertThat(user.getFirstName(), is("John"));
+    }
 }
