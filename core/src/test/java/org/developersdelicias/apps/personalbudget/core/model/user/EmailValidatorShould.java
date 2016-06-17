@@ -20,4 +20,15 @@ public class EmailValidatorShould {
        EmailValidator validator = new EmailValidator();
         assertThat(validator.validate(email), is(true));
     }
+
+    @Test
+    @Parameters({"bcisneros", "bcisneros@.com.my",
+            "bcisneros123@gmail.a", "bcisneros123@.com", "bcisneros123@.com.com",
+            ".bcisneros@bcisneros.com", "bcisneros()*@gmail.com", "bcisneros@%*.com",
+            "bcisneros..2002@gmail.com", "bcisneros.@gmail.com",
+            "bcisneros@bcisneros@gmail.com", "bcisneros@gmail.com.1a"})
+    public void inform_when_email_is_invalid(String email) throws Exception {
+        EmailValidator validator = new EmailValidator();
+        assertThat(validator.validate(email), is(false));
+    }
 }
