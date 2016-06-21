@@ -19,12 +19,12 @@ public class LoginFeatureShould extends AbstractFeature {
     }
 
     @Test
-    public void get_status_ok_when_home_page_is_requested() throws Exception {
+    public void get_status_ok_when_home_page_is_requested() {
         assertThat(homePage.getWebResponse().getStatusCode(), is(200));
     }
 
     @Test
-    public void have_a_title() throws Exception {
+    public void have_a_title() {
         assertThat(homePage.getTitleText(), is("Personal Budget Manager"));
     }
 }
