@@ -14,7 +14,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "org.developersdelicias.apps.personalbudget.core.model" })
+@ComponentScan({"org.developersdelicias.apps.personalbudget.core.model"})
 @Profile("dev")
 public class DevelopmentHibernateDatabaseConfiguration extends AbstractHibernateDatabaseConfiguration {
     private final static Logger _logger = LoggerFactory.getLogger(DevelopmentHibernateDatabaseConfiguration.class);

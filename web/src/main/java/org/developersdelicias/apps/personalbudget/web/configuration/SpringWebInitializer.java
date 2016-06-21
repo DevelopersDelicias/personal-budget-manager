@@ -8,17 +8,17 @@ public class SpringWebInitializer extends AbstractAnnotationConfigDispatcherServ
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { SpringRootConfiguration.class };
+        return new Class[]{SpringRootConfiguration.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { SpringWebConfiguration.class };
+        return new Class[]{SpringWebConfiguration.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[]{"/"};
     }
 
     /**
@@ -28,6 +28,6 @@ public class SpringWebInitializer extends AbstractAnnotationConfigDispatcherServ
      */
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[] { new CORSFilter() };
+        return new Filter[]{new CORSFilter()};
     }
 }
