@@ -23,8 +23,14 @@ public class User {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    @Column(name = "EMAIL")
+    private String email;
+
     @Transient
     private UsernameValidator usernameValidator = new UsernameValidator();
+
+    @Transient
+    private EmailValidator emailValidator = new EmailValidator();
 
     public long getId() {
         return id;
@@ -83,5 +89,17 @@ public class User {
         if (!usernameValidator.validate(username)) {
             throw new InvalidUsernameException(username);
         }
+    }
+
+    public void setEmail(String email) {
+        if (email == null || !emailValidator.validate(email)) {
+            throw new InvalidEmailException();
+        }
+        this.email = email;
+    }
+
+    public String getEmail() {
+
+        return email;
     }
 }

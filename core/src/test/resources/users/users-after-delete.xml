@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <USER ID="1" USERNAME="bcisneros" PASSWORD="123456" FIRST_NAME="Benjamin" LAST_NAME="Cisneros"/>
-    <USER ID="2" USERNAME="aayala" PASSWORD="123456" FIRST_NAME="Alonso" LAST_NAME="Ayala"/>
+    <USER ID="1" USERNAME="bcisneros" PASSWORD="123456" FIRST_NAME="Benjamin" LAST_NAME="Cisneros" EMAIL="bcisneros@test.com"/>
+    <USER ID="2" USERNAME="aayala" PASSWORD="123456" FIRST_NAME="Alonso" LAST_NAME="Ayala" EMAIL="aayala@test.com"/>
 </dataset>

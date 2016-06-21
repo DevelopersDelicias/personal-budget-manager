@@ -49,6 +49,7 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
         newUser.setPassword("123456");
         newUser.setFirstName("Paul");
         newUser.setLastName("Walker");
+        newUser.setEmail("pwalker@test.com");
         users.add(newUser);
     }
 
