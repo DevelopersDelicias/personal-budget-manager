@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuil
 public abstract class AbstractFeature {
 
     public static final String CONTEXT_PATH = "/personal-budget-manager";
-    public static String BASE_URL = "http://localhost" + CONTEXT_PATH;
+    public static final String BASE_URL = "http://localhost" + CONTEXT_PATH;
 
     @Autowired
     protected WebApplicationContext context;

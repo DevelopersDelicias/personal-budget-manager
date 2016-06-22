@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(JUnitParamsRunner.class)
 public class EmailValidatorShould {
 
-    EmailValidator validator = new EmailValidator();
+    final EmailValidator validator = new EmailValidator();
 
     @Test
     @Parameters({"bcisneros@yahoo.com", "bcisneros-100@yahoo.com", "bcisneros.100@yahoo.com", "bcisneros111@bcisneros.com",

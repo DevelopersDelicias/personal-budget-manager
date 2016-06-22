@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(JUnitParamsRunner.class)
 public class UsernameValidatorShould {
 
-    private UsernameValidator validator = new UsernameValidator();
+    private final UsernameValidator validator = new UsernameValidator();
 
     @Test
     @Parameters(source = UsernameTestDataProvider.class, method = "validUsernames")

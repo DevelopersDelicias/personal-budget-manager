@@ -35,10 +35,10 @@ public class User {
     private Set<UserRole> userRole = new HashSet<>(0);
 
     @Transient
-    private UsernameValidator usernameValidator = new UsernameValidator();
+    private final UsernameValidator usernameValidator = new UsernameValidator();
 
     @Transient
-    private EmailValidator emailValidator = new EmailValidator();
+    private final EmailValidator emailValidator = new EmailValidator();
 
     public long getId() {
         return id;
