@@ -1,7 +1,6 @@
 package org.developersdelicias.apps.personalbudget.web.features.login;
 
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,23 +10,28 @@ import static org.junit.Assert.assertThat;
 
 public class LoginFeatureShould extends AbstractFeature {
 
-    private HtmlPage homePage;
+    private HtmlPage loginPage;
 
     @Before
     @Override
     public void setup() throws Exception {
         super.setup();
-        homePage = client.getPage(urlFor("/"));
+        loginPage = client.getPage(urlFor("/"));
     }
 
     @Test
     public void get_status_ok_when_home_page_is_requested() {
-        assertThat(homePage.getWebResponse().getStatusCode(), is(200));
+        assertThat(loginPage.getWebResponse().getStatusCode(), is(200));
+    }
+
+    @Test
+    public void have_a_body_id() throws Exception {
+        assertThat(loginPage.getBody().getId(), is("login-page"));
     }
 
     @Test
     public void have_a_title() {
-        assertThat(homePage.getTitleText(), is("Personal Budget Manager"));
+        assertThat(loginPage.getTitleText(), is("Personal Budget Manager"));
     }
 
     @Test
@@ -40,7 +44,23 @@ public class LoginFeatureShould extends AbstractFeature {
         assertNotNull(getFirstInputElementOfType("password"));
     }
 
+    @Test
+    public void submit_login_form_and_retrieve_an_html_page() throws Exception {
+        final HtmlForm loginForm = loginPage.getFormByName("login-form");
+        assertNotNull(loginForm);
+        final HtmlSubmitInput submitButton = loginForm.getInputByName("submit");
+        assertNotNull(submitButton);
+        HtmlTextInput emailInput = loginForm.getInputByName("email");
+        HtmlPasswordInput passwordInput = loginForm.getInputByName("password");
+        emailInput.setValueAttribute("bcineros@test.com");
+        passwordInput.setValueAttribute("123456");
+        HtmlPage homepage = submitButton.click();
+        assertThat(homepage.getWebResponse().getStatusCode(), is(200));
+        assertThat(homepage.getBody().getId(), is("homepage"));
+
+    }
+
     private HtmlInput getFirstInputElementOfType(String type) {
-        return homePage.getFirstByXPath("//input[@type='" + type + "']");
+        return loginPage.getFirstByXPath("//input[@type='" + type + "']");
     }
 }

@@ -4,6 +4,8 @@
 <link href="resources/dist/css/signin.css" rel="stylesheet"/>
 {% endblock %}
 
+{% block body_id %}login-page{% endblock %}
+
 {% block layout %}
 <div class="container">
     <div class="row">
@@ -16,7 +18,7 @@
                     <h3 class="form-signin-heading">Sign in</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" name="login-form">
+                    <form role="form" name="login-form" method="post" action="submit-login">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Email" name="email"
@@ -31,8 +33,7 @@
                                                value="true">Remember me
                                 </label>
                             </div>
-                            <a class="btn btn-primary btn-lg btn-block" href="#"
-                               role="button">Access</a>
+                            <input type="submit" value="Access" name="submit" class="btn btn-primary btn-lg btn-block"/>
                         </fieldset>
                     </form>
                 </div>
