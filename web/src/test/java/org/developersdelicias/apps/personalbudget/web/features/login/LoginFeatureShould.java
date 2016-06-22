@@ -32,7 +32,15 @@ public class LoginFeatureShould extends AbstractFeature {
 
     @Test
     public void have_an_email_input() throws Exception {
-        HtmlInput emailInput = homePage.getFirstByXPath("//input[@type='email']");
-        assertNotNull(emailInput);
+        assertNotNull(getFirstInputElementOfType("email"));
+    }
+
+    @Test
+    public void have_a_password_input() throws Exception {
+        assertNotNull(getFirstInputElementOfType("password"));
+    }
+
+    private HtmlInput getFirstInputElementOfType(String type) {
+        return homePage.getFirstByXPath("//input[@type='" + type + "']");
     }
 }
