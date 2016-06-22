@@ -8,37 +8,28 @@ import java.util.Set;
 @Table(name = "USER")
 public class User {
 
+    @Transient
+    private final UsernameValidator usernameValidator = new UsernameValidator();
+    @Transient
+    private final EmailValidator emailValidator = new EmailValidator();
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Column(name = "USERNAME")
     private String username;
-
     @Column(name = "PASSWORD")
     private String password;
-
     @Column(name = "FIRST_NAME")
     private String firstName;
-
     @Column(name = "LAST_NAME")
     private String lastName;
-
     @Column(name = "EMAIL")
     private String email;
-
     @Column(name = "ENABLED", nullable = false)
     private boolean enabled;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<UserRole> userRole = new HashSet<>(0);
-
-    @Transient
-    private final UsernameValidator usernameValidator = new UsernameValidator();
-
-    @Transient
-    private final EmailValidator emailValidator = new EmailValidator();
 
     public long getId() {
         return id;
@@ -99,16 +90,16 @@ public class User {
         }
     }
 
+    public String getEmail() {
+
+        return email;
+    }
+
     public void setEmail(String email) {
         if (email == null || !emailValidator.validate(email)) {
             throw new InvalidEmailException();
         }
         this.email = email;
-    }
-
-    public String getEmail() {
-
-        return email;
     }
 
     public boolean isEnabled() {
