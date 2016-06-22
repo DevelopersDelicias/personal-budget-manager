@@ -1,5 +1,6 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
+import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.UserNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

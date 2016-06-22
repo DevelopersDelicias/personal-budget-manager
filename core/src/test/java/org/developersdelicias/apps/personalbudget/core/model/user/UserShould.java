@@ -2,6 +2,8 @@ package org.developersdelicias.apps.personalbudget.core.model.user;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.InvalidEmailException;
+import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.InvalidUsernameException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

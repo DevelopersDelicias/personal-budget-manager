@@ -1,4 +1,4 @@
-package org.developersdelicias.apps.personalbudget.core.model.user;
+package org.developersdelicias.apps.personalbudget.core.model.user.exceptions;
 
 public class InvalidUsernameException extends RuntimeException {
     public InvalidUsernameException(String username) {

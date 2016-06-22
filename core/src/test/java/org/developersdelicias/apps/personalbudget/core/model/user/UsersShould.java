@@ -4,6 +4,7 @@ import com.developersdelicias.apps.personalbudget.test.configuration.DatabaseUni
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.UserNotFoundException;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
