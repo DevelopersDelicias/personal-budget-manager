@@ -15,13 +15,13 @@ public class UsernameValidatorShould {
 
     @Test
     @Parameters(source = UsernameTestDataProvider.class, method = "validUsernames")
-    public void inform_when_a_username_is_valid(String username) throws Exception {
+    public void inform_when_a_username_is_valid(String username) {
         assertThat(validator.validate(username), is(true));
     }
 
     @Test
     @Parameters(source = UsernameTestDataProvider.class, method = "invalidUsernames")
-    public void inform_when_a_username_is_invalid(String username) throws Exception {
+    public void inform_when_a_username_is_invalid(String username) {
         assertThat(validator.validate(username), is(false));
     }
 }

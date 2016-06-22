@@ -1,6 +1,8 @@
 package org.developersdelicias.apps.personalbudget.core.model.user;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "USER")
@@ -25,6 +27,12 @@ public class User {
 
     @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "ENABLED", nullable = false)
+    private boolean enabled;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<UserRole> userRole = new HashSet<>(0);
 
     @Transient
     private UsernameValidator usernameValidator = new UsernameValidator();
@@ -101,5 +109,21 @@ public class User {
     public String getEmail() {
 
         return email;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Set<UserRole> getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(Set<UserRole> userRole) {
+        this.userRole = userRole;
     }
 }

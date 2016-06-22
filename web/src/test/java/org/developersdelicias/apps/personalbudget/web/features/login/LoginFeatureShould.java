@@ -25,7 +25,7 @@ public class LoginFeatureShould extends AbstractFeature {
     }
 
     @Test
-    public void have_a_body_id() throws Exception {
+    public void have_a_body_id() {
         assertThat(loginPage.getBody().getId(), is("login-page"));
     }
 
@@ -35,12 +35,12 @@ public class LoginFeatureShould extends AbstractFeature {
     }
 
     @Test
-    public void have_an_email_input() throws Exception {
+    public void have_an_email_input() {
         assertNotNull(getFirstInputElementOfType("email"));
     }
 
     @Test
-    public void have_a_password_input() throws Exception {
+    public void have_a_password_input() {
         assertNotNull(getFirstInputElementOfType("password"));
     }
 

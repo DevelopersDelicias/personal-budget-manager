@@ -38,19 +38,19 @@ public class UserShould {
     }
 
     @Test
-    public void allow_to_set_a_valid_email() throws Exception {
+    public void allow_to_set_a_valid_email() {
         String aValidEmail = "bcisneros@test.com";
         user.setEmail(aValidEmail);
         assertThat(user.getEmail(), is(aValidEmail));
     }
 
     @Test(expected = InvalidEmailException.class)
-    public void not_allow_to_set_a_null_email() throws Exception {
+    public void not_allow_to_set_a_null_email() {
         user.setEmail(null);
     }
 
     @Test(expected = InvalidEmailException.class)
-    public void not_allow_to_set_an_invalid_email() throws Exception {
+    public void not_allow_to_set_an_invalid_email() {
         user.setEmail("bcisneros@bcisneros@gmail.com");
     }
 }

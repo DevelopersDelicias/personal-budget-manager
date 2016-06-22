@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
     <USER ID="1" USERNAME="bcisneros" PASSWORD="123456" FIRST_NAME="Benjamin" LAST_NAME="Cisneros Barraza"
-          EMAIL="bcisneros@test.com"/>
-    <USER ID="2" USERNAME="aayala" PASSWORD="123456" FIRST_NAME="Alonso" LAST_NAME="Ayala" EMAIL="aayala@test.com"/>
-    <USER ID="3" USERNAME="jsmith" PASSWORD="123456" FIRST_NAME="John" LAST_NAME="Smith" EMAIL="jsmith@test.com"/>
+          EMAIL="bcisneros@test.com" ENABLED="true"/>
+    <USER ID="2" USERNAME="aayala" PASSWORD="123456" FIRST_NAME="Alonso" LAST_NAME="Ayala" EMAIL="aayala@test.com"
+          ENABLED="true"/>
+    <USER ID="3" USERNAME="jsmith" PASSWORD="123456" FIRST_NAME="John" LAST_NAME="Smith" EMAIL="jsmith@test.com"
+          ENABLED="false"/>
+
+    <USER_ROLES/>
 </dataset>
