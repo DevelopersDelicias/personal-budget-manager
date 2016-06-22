@@ -2,6 +2,8 @@ package org.developersdelicias.apps.personalbudget.core.model.user;
 
 import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.InvalidEmailException;
 import org.developersdelicias.apps.personalbudget.core.model.user.exceptions.InvalidUsernameException;
+import org.developersdelicias.apps.personalbudget.core.model.user.validators.EmailValidator;
+import org.developersdelicias.apps.personalbudget.core.model.user.validators.UsernameValidator;
 
 import javax.persistence.*;
 import java.util.HashSet;

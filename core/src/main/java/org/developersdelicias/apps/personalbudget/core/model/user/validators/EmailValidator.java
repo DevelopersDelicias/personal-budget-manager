@@ -1,4 +1,4 @@
-package org.developersdelicias.apps.personalbudget.core.model.user;
+package org.developersdelicias.apps.personalbudget.core.model.user.validators;
 
 public class EmailValidator {
     public boolean validate(String email) {
