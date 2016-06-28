@@ -42,8 +42,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private List<GrantedAuthority> buildUserAuthority(Set<UserRole> userRoles) {
 
-        Set<GrantedAuthority> setAuths = userRoles.stream().map(userRole -> new SimpleGrantedAuthority(userRole.getRole())).collect(Collectors.toSet());
+        Set<GrantedAuthority> authorities = userRoles.stream().map(userRole -> new SimpleGrantedAuthority(userRole.getRole())).collect(Collectors.toSet());
 
-        return new ArrayList<>(setAuths);
+        return new ArrayList<>(authorities);
     }
 }
