@@ -1,7 +1,8 @@
-package org.developersdelicias.apps.personalbudget.core.model.user;
+package org.developersdelicias.apps.personalbudget.core.model.user.validators;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.developersdelicias.apps.personalbudget.core.model.user.UsernameTestDataProvider;
 import org.developersdelicias.apps.personalbudget.core.model.user.validators.UsernameValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
