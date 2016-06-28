@@ -59,7 +59,7 @@ public class UsersShould extends AbstractTransactionalJUnit4SpringContextTests {
     @Test
     @ExpectedDatabase("/users/users-after-update.xml")
     public void update_a_user() {
-        User benjamin = sessionFactory.getCurrentSession().load(User.class, new Long(1));
+        User benjamin = sessionFactory.getCurrentSession().load(User.class, 1L);
         benjamin.setLastName("Cisneros Barraza");
         users.update(benjamin);
     }
