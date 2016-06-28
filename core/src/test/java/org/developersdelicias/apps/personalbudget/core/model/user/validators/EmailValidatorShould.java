@@ -2,7 +2,6 @@ package org.developersdelicias.apps.personalbudget.core.model.user.validators;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import org.developersdelicias.apps.personalbudget.core.model.user.validators.EmailValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
