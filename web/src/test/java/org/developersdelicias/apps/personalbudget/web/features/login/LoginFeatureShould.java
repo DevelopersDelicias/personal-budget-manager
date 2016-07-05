@@ -46,18 +46,22 @@ public class LoginFeatureShould extends AbstractFeature {
 
     @Test
     public void submit_login_form_and_retrieve_an_html_page() throws Exception {
+        HtmlPage homepage = submitLoginForm("bcineros@test.com", "123456");
+        assertThat(homepage.getWebResponse().getStatusCode(), is(200));
+        assertThat(homepage.getBody().getId(), is("homepage"));
+
+    }
+
+    private HtmlPage submitLoginForm(String email, String password) throws java.io.IOException {
         final HtmlForm loginForm = loginPage.getFormByName("login-form");
         assertNotNull(loginForm);
         final HtmlSubmitInput submitButton = loginForm.getInputByName("submit");
         assertNotNull(submitButton);
         HtmlTextInput emailInput = loginForm.getInputByName("email");
         HtmlPasswordInput passwordInput = loginForm.getInputByName("password");
-        emailInput.setValueAttribute("bcineros@test.com");
-        passwordInput.setValueAttribute("123456");
-        HtmlPage homepage = submitButton.click();
-        assertThat(homepage.getWebResponse().getStatusCode(), is(200));
-        assertThat(homepage.getBody().getId(), is("homepage"));
-
+        emailInput.setValueAttribute(email);
+        passwordInput.setValueAttribute(password);
+        return submitButton.click();
     }
 
     private HtmlInput getFirstInputElementOfType(String type) {
